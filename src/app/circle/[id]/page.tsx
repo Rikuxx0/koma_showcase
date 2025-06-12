@@ -101,7 +101,7 @@ export default function CircleDetailPage({ params }: CircleDetailPageProps) {
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-indigo-50 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">サークルが見つかりません</h1>
-          <Link href="/" className="text-purple-600 hover:text-purple-700">
+          <Link href="/" className="text-purple-800 hover:text-purple-900">
             ホームに戻る
           </Link>
         </div>
@@ -164,7 +164,7 @@ export default function CircleDetailPage({ params }: CircleDetailPageProps) {
                       key={index}
                       onClick={() => setSelectedImage(index)}
                       className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden border-2 transition-colors duration-200 ${
-                        selectedImage === index ? "border-purple-500" : "border-gray-200"
+                        selectedImage === index ? "border-purple-800" : "border-gray-200"
                       }`}
                     >
                       <image
@@ -197,23 +197,23 @@ export default function CircleDetailPage({ params }: CircleDetailPageProps) {
 
               <div className="space-y-3">
                 <div className="flex items-center text-sm text-gray-600">
-                  <Users className="w-4 h-4 mr-3 text-purple-500" />
+                  <Users className="w-4 h-4 mr-3 text-purple-800" />
                   <span>メンバー数: {circle.memberCount}人</span>
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
-                  <Clock className="w-4 h-4 mr-3 text-purple-500" />
+                  <Clock className="w-4 h-4 mr-3 text-purple-800" />
                   <span>{circle.meetingTime}</span>
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
-                  <MapPin className="w-4 h-4 mr-3 text-purple-500" />
+                  <MapPin className="w-4 h-4 mr-3 text-purple-800" />
                   <span>{circle.location}</span>
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
-                  <Mail className="w-4 h-4 mr-3 text-purple-500" />
+                  <Mail className="w-4 h-4 mr-3 text-purple-800" />
                   <span>{circle.contact}</span>
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
-                  <Phone className="w-4 h-4 mr-3 text-purple-500" />
+                  <Phone className="w-4 h-4 mr-3 text-purple-800" />
                   <span>{circle.phone}</span>
                 </div>
               </div>
@@ -232,7 +232,7 @@ export default function CircleDetailPage({ params }: CircleDetailPageProps) {
               </div>
 
               <div className="mt-6 space-y-3">
-                <button className="w-full py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors duration-200">
+                <button className="w-full py-3 bg-purple-800 text-white rounded-lg font-medium hover:bg-purple-900 transition-colors duration-200">
                   参加申し込み
                 </button>
                 <button className="w-full py-3 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 transition-colors duration-200">
@@ -254,7 +254,7 @@ export default function CircleDetailPage({ params }: CircleDetailPageProps) {
                   onClick={() => setActiveTab(tab.id)}
                   className={`px-6 py-4 text-sm font-medium whitespace-nowrap transition-colors duration-200 ${
                     activeTab === tab.id
-                      ? "text-purple-600 border-b-2 border-purple-600"
+                      ? "text-purple-800 border-b-2 border-purple-800"
                       : "text-gray-600 hover:text-gray-900"
                   }`}
                 >
@@ -285,7 +285,7 @@ export default function CircleDetailPage({ params }: CircleDetailPageProps) {
                     <ul className="space-y-2">
                       {circle.requirements.map((req, index) => (
                         <li key={index} className="flex items-start text-sm text-gray-600">
-                          <span className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="w-2 h-2 bg-purple-800 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           {req}
                         </li>
                       ))}
@@ -318,7 +318,7 @@ export default function CircleDetailPage({ params }: CircleDetailPageProps) {
                     </div>
                     <div>
                       <span className="text-gray-500">ウェブサイト:</span>
-                      <a href={circle.website} className="ml-2 text-purple-600 hover:text-purple-700">
+                      <a href={circle.website} className="ml-2 text-purple-800 hover:text-purple-900">
                         {circle.website}
                       </a>
                     </div>
@@ -377,7 +377,7 @@ export default function CircleDetailPage({ params }: CircleDetailPageProps) {
                             </div>
                           </div>
                         </div>
-                        <button className="px-4 py-2 bg-purple-600 text-white rounded-lg text-sm font-medium hover:bg-purple-700 transition-colors duration-200">
+                        <button className="px-4 py-2 bg-purple-800 text-white rounded-lg text-sm font-medium hover:bg-purple-900 transition-colors duration-200">
                           参加申込
                         </button>
                       </div>
@@ -391,7 +391,7 @@ export default function CircleDetailPage({ params }: CircleDetailPageProps) {
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold text-gray-900">メンバーレビュー</h3>
-                  <button className="px-4 py-2 bg-purple-600 text-white rounded-lg text-sm font-medium hover:bg-purple-700 transition-colors duration-200">
+                  <button className="px-4 py-2 bg-purple-800 text-white rounded-lg text-sm font-medium hover:bg-purple-900 transition-colors duration-200">
                     レビューを書く
                   </button>
                 </div>

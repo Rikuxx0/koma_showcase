@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Clock, MapPin, Users, Wrench, Calendar } from "lucide-react"
+import { Clock, MapPin, Users, Wrench } from "lucide-react"
+import Link from "next/link"
 
 // サンプルデータ
 const sampleFacilities = [
@@ -155,16 +156,11 @@ export function FacilityList() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex gap-2">
-                <button className="flex-1 py-3 bg-purple-800 text-white rounded-xl font-medium hover:bg-purple-900 transition-colors">
-                  詳細を見る
-                </button>
-                {facility.reservationRequired && (
-                  <button className="px-4 py-3 bg-gray-100 text-gray-700 rounded-xl font-medium hover:bg-gray-200 transition-colors">
-                    <Calendar className="w-4 h-4" />
+                <Link href={`/facility/${facility.id}`}>
+                  <button className="w-full py-3 bg-purple-800 text-white rounded-xl font-medium hover:bg-purple-900 transition-colors">
+                    詳細を見る
                   </button>
-                )}
-              </div>
+                </Link>
             </div>
           </div>
         ))}

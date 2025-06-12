@@ -2,6 +2,7 @@
 import { SearchContainer } from "@/components/search-container"
 import { CategoryTabs } from "@/components/category-tabs"
 import { FeaturedSection } from "@/components/featured-section"
+import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 
 import Link from "next/link"
@@ -44,6 +45,7 @@ export default function Home() {
         <SearchContainer />
         <CategoryTabs />
         <FeaturedSection />
+        <Footer />
       </main>
     </div>
   )

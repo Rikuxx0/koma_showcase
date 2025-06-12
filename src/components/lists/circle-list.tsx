@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Clock, MapPin, Users, Heart } from "lucide-react"
+import { Clock, MapPin, Users } from "lucide-react"
 import Link from "next/link"
 
 
@@ -65,15 +65,12 @@ const categories = ["全て", "技術系", "文化系", "体育系", "学術系"
 
 export function CircleList() {
   const [selectedCategory, setSelectedCategory] = useState("全て")
-  const [favorites, setFavorites] = useState<number[]>([])
+  
 
   const filteredCircles = sampleCircles.filter(
     (circle) => selectedCategory === "全て" || circle.category === selectedCategory,
   )
 
-  const toggleFavorite = (circleId: number) => {
-    setFavorites((prev) => (prev.includes(circleId) ? prev.filter((id) => id !== circleId) : [...prev, circleId]))
-  }
 
   return (
     <div className="space-y-6">
@@ -121,16 +118,6 @@ export function CircleList() {
                     </div>
                   </div>
                 </div>
-                <button
-                  onClick={() => toggleFavorite(circle.id)}
-                  className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
-                >
-                  {favorites.includes(circle.id) ? (
-                    <Heart className="w-5 h-5 text-red-500 fill-red-500" />
-                  ) : (
-                    <Heart className="w-5 h-5 text-gray-400" />
-                  )}
-                </button>
               </div>
 
               {/* 説明 */}

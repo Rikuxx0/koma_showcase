@@ -1,7 +1,8 @@
-"use client"　
+"use client"
 
 import { useState } from "react"
-import { Clock, MapPin, Users, Heart, Trophy } from "lucide-react"
+import { Clock, MapPin, Users, Trophy } from "lucide-react"
+import Link from "next/link"
 
 // サンプルデータ
 const sampleClubs = [
@@ -67,13 +68,9 @@ const clubCategories = ["全て", "体育会系", "文化系", "学術系"]
 
 export function ClubList() {
   const [selectedCategory, setSelectedCategory] = useState("全て")
-  const [favorites, setFavorites] = useState<number[]>([])
 
   const filteredClubs = sampleClubs.filter((club) => selectedCategory === "全て" || club.category === selectedCategory)
 
-  const toggleFavorite = (clubId: number) => {
-    setFavorites((prev) => (prev.includes(clubId) ? prev.filter((id) => id !== clubId) : [...prev, clubId]))
-  }
 
   return (
     <div className="space-y-6">
@@ -119,16 +116,6 @@ export function ClubList() {
                     </div>
                   </div>
                 </div>
-                <button
-                  onClick={() => toggleFavorite(club.id)}
-                  className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-                >
-                  {favorites.includes(club.id) ? (
-                    <Heart className="w-5 h-5 text-red-500 fill-red-500" />
-                  ) : (
-                    <Heart className="w-5 h-5 text-gray-400" />
-                  )}
-                </button>
               </div>
 
               {/* Description */}
@@ -166,9 +153,11 @@ export function ClubList() {
               </div>
 
               {/* Action Button - 紫に変更 */}
-              <button className="w-full py-3 bg-purple-800 text-white rounded-xl font-medium hover:bg-purple-900 transition-colors">
-                詳細を見る
-              </button>
+              <Link href={`/club/${club.id}`}>
+                <button className="w-full py-3 bg-purple-800 text-white rounded-xl font-medium hover:bg-purple-900 transition-colors">
+                  詳細を見る
+                </button>
+              </Link>
             </div>
           </div>
         ))}

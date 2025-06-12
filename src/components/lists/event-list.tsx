@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Clock, MapPin, Calendar, Users, Heart } from "lucide-react"
+import { Clock, MapPin, Calendar, Users } from "lucide-react"
+import Link from "next/link"
 
 // サンプルデータ
 const sampleEvents = [
@@ -73,13 +74,10 @@ const eventTypes = ["全て", "コンテスト", "セミナー", "説明会", "�
 
 export function EventList() {
   const [selectedType, setSelectedType] = useState("全て")
-  const [favorites, setFavorites] = useState<number[]>([])
-
+  
   const filteredEvents = sampleEvents.filter((event) => selectedType === "全て" || event.type === selectedType)
 
-  const toggleFavorite = (eventId: number) => {
-    setFavorites((prev) => (prev.includes(eventId) ? prev.filter((id) => id !== eventId) : [...prev, eventId]))
-  }
+
 
   return (
     <div className="space-y-6">
@@ -130,16 +128,6 @@ export function EventList() {
                     )}
                   </div>
                 </div>
-                <button
-                  onClick={() => toggleFavorite(event.id)}
-                  className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-                >
-                  {favorites.includes(event.id) ? (
-                    <Heart className="w-5 h-5 text-red-500 fill-red-500" />
-                  ) : (
-                    <Heart className="w-5 h-5 text-gray-400" />
-                  )}
-                </button>
               </div>
 
               {/* Description */}
@@ -175,16 +163,11 @@ export function EventList() {
               </div>
 
               {/* Action Buttons - 紫に変更 */}
-              <div className="flex gap-2">
-                <button className="flex-1 py-3 bg-purple-800 text-white rounded-xl font-medium hover:bg-purple-900 transition-colors">
-                  詳細を見る
-                </button>
-                {event.registration && (
-                  <button className="flex-1 py-3 bg-purple-800 text-white rounded-xl font-medium hover:bg-purple-900 transition-colors">
-                    申し込む
+                <Link href={`/event/${event.id}`}>
+                  <button className="w-full py-3 bg-purple-800 text-white rounded-xl font-medium hover:bg-purple-900 transition-colors">
+                    詳細を見る
                   </button>
-                )}
-              </div>
+                </Link>
             </div>
           </div>
         ))}
